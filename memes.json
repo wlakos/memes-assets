@@ -1,0 +1,10 @@
+{
+  "name": "MEMES",
+  "symbol": "MEMES",
+  "description": "MEMES is an index of the top 10 memecoins: DOGE, SHIB, PEPE, WIF, FLOKI, BONK, NOT, DOGS, BOME, and BRETT",
+  "image": "https://wlakos.github.io/memes-assets/logo.png",
+  "attributes": [
+    { "trait_type": "Category", "value": "Memecoin Index" },
+    { "trait_type": "Network", "value": "Solana Mainnet" }
+  ]
+}
