@@ -3,6 +3,7 @@
   "symbol": "MEMES",
   "description": "MEMES is an index of the top 10 memecoins: DOGE, SHIB, PEPE, WIF, FLOKI, BONK, NOT, DOGS, BOME, and BRETT",
   "image": "https://wlakos.github.io/memes-assets/logo.png",
+  "external_url": "https://memesc.org",
   "attributes": [
     { "trait_type": "Category", "value": "Memecoin Index" },
     { "trait_type": "Network", "value": "Solana Mainnet" }
@@ -14,6 +15,12 @@
         "type": "image/png"
       }
     ],
-    "category": "image"
+    "category": "image",
+    "links": {
+      "website": "https://memesc.org",
+      "x": "https://x.com/memeland_tg",
+      "telegram_announcements": "https://t.me/memes_announcements",
+      "telegram_bot": "https://t.me/metaland_bot"
+    }
   }
 }
