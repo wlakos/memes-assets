@@ -1,0 +1,27 @@
+{
+  "name": "MEMEX",
+  "symbol": "MEMEX",
+  "description": "MEMEX is a next-generation DEX for perpetual futures, enabling trading of memes, crypto, tokenized stocks, and RWAs with deep liquidity, ultra-low fees, and full self-custody. 50% of all platform revenue is dedicated to MEMEX token buybacks until the price reaches $10.",
+  "image": "https://wlakos.github.io/memes-assets/MEMEX.png",
+  "external_url": "https://app.memex.gg/markets",
+  "attributes": [
+    { "trait_type": "Category", "value": "Perpetual Futures DEX" },
+    { "trait_type": "Network", "value": "Solana Mainnet" }
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://wlakos.github.io/memes-assets/MEMEX.png",
+        "type": "image/png"
+      }
+    ],
+    "category": "image",
+    "links": {
+      "website": "https://app.memex.gg/markets",
+      "documentation": "https://docs.memex.gg/",
+      "twitter": "https://x.com/memexgg",
+      "trading_bot": "https://t.me/MemexCryptoBot",
+      "mining_bot": "https://t.me/MemexCryptoBot/app"
+    }
+  }
+}
