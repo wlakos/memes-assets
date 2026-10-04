@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MEMEX Whitepaper — Mobile Docs</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #1f2937; background-color: #f9fafb; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        .nav-header { background-color: #0056b3; color: white; padding: 15px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .container { max-width: 600px; margin: 60px auto 0 auto; padding: 20px 15px 40px 15px; background-color: #fff; }
+        h1 { font-size: 24px; color: #0056b3; text-align: center; margin-top: 15px; margin-bottom: 5px; line-height: 1.2; }
+        .subtitle { font-size: 14px; color: #4b5563; text-align: center; margin-bottom: 25px; display: block; }
+        h3 { font-size: 18px; color: #111827; border-left: 4px solid #0056b3; padding-left: 10px; margin-top: 30px; margin-bottom: 12px; }
+        p { font-size: 15px; color: #374151; margin-bottom: 15px; text-align: justify; }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { font-size: 15px; color: #374151; margin-bottom: 8px; }
+        .formula-box { background-color: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 15px 0; font-family: monospace; font-size: 13px; font-weight: bold; text-align: center; color: #065f46; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+        .btn-link { display: block; background-color: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center; color: #0056b3; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.2s; word-break: break-all; }
+        .btn-link:active { background-color: #dbeafe; }
+        .btn-partner { display: block; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center; color: #166534; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.2s; word-break: break-all; }
+        .btn-partner:active { background-color: #dcfce7; }
+        blockquote { background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 12px; margin: 20px 0; border-radius: 0 8px 8px 0; font-style: italic; font-size: 14px; color: #78350f; }
+        .spec-label { font-weight: bold; color: #4b5563; }
+        .copy-container { display: flex; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 4px; margin-top: 6px; align-items: center; justify-content: space-between; }
+        .address-box { font-family: monospace; font-size: 12px; word-break: break-all; color: #334155; padding-left: 4px; }
+        .btn-copy { background-color: #0056b3; color: white; border: none; border-radius: 4px; padding: 6px 12px; font-size: 12px; font-weight: bold; cursor: pointer; white-space: nowrap; margin-left: 8px; }
+        .btn-copy:active { background-color: #003d7a; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">MEMEX Docs & Whitepaper</div>
+
+    <div class="container">
+        <h1>MEMEX (MEMEX) Whitepaper</h1>
+        <span class="subtitle">Децентрализованная биржа бессрочных фьючерсов нового поколения</span>
+
+        <h3>1. Введение и Проблема Рынка</h3>
+        <p>Современный рынок децентрализованных финансов (DeFi) разделен: трейдеры вынуждены переключаться между разными платформами для торговли мемкоинами, классической криптовалютой и реальными активами (RWA). Существующие децентрализованные биржи (DEX) часто страдают от высоких комиссий, низкой ликвидности при сильных рыночных колебаниях и отсутствия сильной токеномики, которая защищала бы интересы долгосрочных инвесторов.</p>
+        <p>MEMEX — это децентрализованная биржа (DEX) нового поколения для торговли бессрочными фьючерсами (Perpetuals). Платформа объединяет рынки мемкоинов, криптовалют, токенизированных акций и активов из реального мира (RWA) в едином интерфейсе с глубокой ликвидностью, ультра-низкими комиссиями и полной децентрализацией (Self-Custody).</p>
+
+        <h3>2. Ключевые Особенности Платформы</h3>
+        <ul>
+            <li><strong>Универсальный трейдинг:</strong> Бессрочные контракты (перпы) на любые активы — от хайповых мемкоинов до акций крупных корпораций, золота и RWA.</li>
+            <li><strong>Архитектура на Solana:</strong> Использование блокчейна Solana гарантирует мгновенное исполнение ордеров (менее 0.5 сек) и минимальные сетевые комиссии.</li>
+            <li><strong>Глубокая ликвидность:</strong> Гибридный движок, объединяющий ончейн-книгу ордеров (CLOB) и динамические пулы ликвидности, сводит к минимуму проскальзывание (slippage).</li>
+            <li><strong>Полный контроль (Self-Custody):</strong> Средства пользователей всегда остаются на их личных некастодиальных кошельках. Протокол не имеет доступа к приватным ключам пользователей.</li>
+        </ul>
+
+        <h3>3. Токеномика и Механика Удержания Цены (Hyper-Buyback)</h3>
+        <p>Токен MEMEX является сердцем экосистемы. Вместо бесконечной эмиссии и инфляции, проект внедряет дефляционную модель защиты инвесторов.</p>
+        <p><strong>Стратегия «Цель — $10» (Target $10 Buyback):</strong></p>
+        <ul>
+            <li><strong>Выделение выручки:</strong> Ровно 50% от всего дохода платформы (торговые комиссии, сборы за ликвидацию, комиссии за кросс-чейн мосты) автоматически направляются в пул обратного выкупа активов.</li>
+            <li><strong>Постоянный спрос:</strong> Смарт-контракт непрерывно выкупает токены MEMEX с открытого рынка (DEX пулов на Solana), создавая постоянную восходящую волну роста цены.</li>
+            <li><strong>Срок действия:</strong> Программа обратного выкупа в размере 50% от дохода работает в автоматическом режиме до тех пор, пока рыночная цена токена MEMEX не достигнет $10.</li>
+        </ul>
+
+        <h3>4. Алгоритмическое управление ликвидностью и ценовой пол (Floor Price Protocol)</h3>
+        <p>Для минимизации рыночной волатильности и защиты капитала участников экосистемы, протокол MEMEX внедряет автономный алгоритмический маркет-мейкер (AMM) с функцией концентрированной ликвидности в рамках архитектуры DLMM (Dynamic Liquidity Market Maker).</p>
+        <p>Алгоритм MEMEX фокусирует пулы ликвидности в строго заданных ценовых диапазонах:</p>
+        <ul>
+            <li><strong>Матрица ликвидности:</strong> Смарт-контракт автоматически концентрирует базовую ликвидность в ценовом коридоре $0.10 – $1.00, создавая глубокую «подушку» ликвидности внутри данного диапазона.</li>
+            <li><strong>Алгоритмическая стена покупателя (Bid Wall):</strong> При приближении курса к отметке $0.10, протокол активирует резервный фонд, сформированный из программы Hyper-Buyback. Смарт-контракт автоматически выставляет плотные ордера на покупку, перераспределяя ликвидность пулов для защиты актива от падения ниже технологического минимума в $0.10.</li>
+            <li><strong>Защита от манипуляций:</strong> Благодаря высокой концентрации ликвидности в этом секторе, попытки крупных игроков искусственно обрушить цену токена MEMEX поглощаются автоматическим маркет-мейкером без существенного изменения курса, обеспечивая сохранность и предсказуемость инвестиционной среды.</li>
+        </ul>
+        <h3>5. Распределение токенов (Token Allocation)</h3>
+        <p>Максимальная и фиксированная эмиссия токена составляет 300 000 000 MEMEX. Проект полностью отказывается от скрытых продаж крупным фондам и использует модель Fair Launch (честный запуск):</p>
+        <ul>
+            <li><strong>100% Пользовательское распределение (Community Allocation):</strong> Все 300 000 000 токенов полностью распределяются среди пользователей экосистемы через открытые торги, награды за трейдинг и аирдропы ранним сторонникам. У команды и инсайдеров нет стартовых бесплатных долей.</li>
+            <li><strong>Обеспечение ликвидности (Liquidity Pools):</strong> Часть привлеченных при запуске средств уходит в равных пропорциях на создание стартовой ликвидности во всех ключевых торговых парах на DEX.</li>
+            <li><strong>Правило Биржевого Баланса (No Team Sell):</strong> На балансе самой биржи изначально нет токенов для продажи на рынке. Все токены, которые будут накапливаться на кошельках платформы, берутся исключительно из программы Buyback (обратного выкупа). Эти выкупленные токены никогда не будут проданы в стакан. Они используются строго внутри системы для обеспечения долгосрочного функционирования: распределения наград стейкерам, обеспечения страхового фонда фьючерсов и покрытия реферальных программ.</li>
+        </ul>
+
+        <h3>6. Полезность Токена (Utility) и Стейкинг</h3>
+        <p>Владельцы токенов MEMEX получают прямые преимущества на платформе:</p>
+        <ol>
+            <li><strong>Скидки на комиссии:</strong> Удержание токенов на кошельке пропорционально снижает торговые комиссии на бирже MEMEX.</li>
+            <li><strong>Управление (DAO):</strong> Голосование за добавление новых торговых пар (мемкоинов или RWA-активов).</li>
+            <li><strong>Стейкинг пула обратного выкупа:</strong> Блокировка токенов позволяет получать доходность из токенов, выкупленных смарт-контрактом с рынка (50% от всей выручки платформы).</li>
+        </ol>
+
+        <p><strong>Формула распределения доходов стейкеров:</strong></p>
+        <div class="formula-box">
+            R_user = (S_user &times; T_multiplier / S_total_weighted) &times; (Rev_weekly &times; 0.50)
+        </div>
+
+        <p>Где параметры означают следующее:</p>
+        <ul>
+            <li><strong>R_user</strong> — Итоговое вознаграждение пользователя за текущую неделю.</li>
+            <li><strong>S_user</strong> — Количество токенов MEMEX в стейкинге.</li>
+            <li><strong>T_multiplier</strong> — Временной множитель:
+                <ul>
+                    <li>Без блокировки (гибкий стейкинг) = 1.0x</li>
+                    <li>Блокировка на 3 месяца = 1.2x</li>
+                    <li>Блокировка на 6 месяцев = 1.5x</li>
+                    <li>Блокировка на 12 месяцев = 2.0x</li>
+                </ul>
+            </li>
+            <li><strong>S_total_weighted</strong> — Общий взвешенный объем всего пула стейкинга.</li>
+            <li><strong>Rev_weekly</strong> — Общий чистый доход биржи MEMEX за неделю.</li>
+            <li><strong>0.50</strong> — Фиксированная доля распределения выручки (50%).</li>
+        </ul>
+
+        <blockquote>
+            <strong>Пример расчета:</strong> За неделю биржа заработала $100,000 на торговых комиссиях. На $50,000 смарт-контракт выкупил с рынка токены MEMEX. Если ваша доля с учетом множителя блокировки составляет 1% от всего пула стейкинга, то в конце недели вы автоматически получите на кошелек токены MEMEX на сумму $500.
+        </blockquote>
+
+        <h3>7. Дорожная Карта (Roadmap)</h3>
+        <ul>
+            <li><strong>Фаза 1:</strong> Запуск тестовой сети (Testnet), проведение комплексных аудитов смарт-контрактов, листинг токена MEMEX на агрегаторах Raydium/Jupiter.</li>
+            <li><strong>Фаза 2:</strong> Запуск основной сети (Mainnet) фьючерсной торговли. Активация автоматического смарт-контракта Buyback (направление 50% выручки на выкуп).</li>
+            <li><strong>Фаза 3:</strong> Расширение пулов ликвидности и мобильности. Создание ликвидного пула MEMEX/WETH на Solana. Внедрение Web App / Mobile версии биржи для торговли в один клик со смартфонов.</li>
+            <li><strong>Фаза 4:</strong> Синхронизация через Треугольный Арбитраж. Формирование замкнутой торговой системы из пулов: MEMEX/SOL, SOL/WETH, MEMEX/WETH.
+                <p style="margin-top: 8px; font-style: italic; font-size: 14px;">Принцип арбитража: Если курс SOL или WETH на рынке поднимается на 10%, арбитражные боты моментально совершают круговую сделку, покупая MEMEX за подорожавший инструмент. Курс токена MEMEX зеркально поднимается на те же 10%.</p>
+            </li>
+            <li><strong>Фаза 5:</strong> Масштабирование объема торгов деривативной платформы до достижения цены токена в $10.</li>
+        </ul>
+
+        <h3>8. Официальные ресурсы и Спецификации (Official Links & Specs)</h3>
+        <p>Для обеспечения безопасности сообщества, всегда используйте только верифицированные смарт-контракты и официальные каналы проекта MEMEX.</p>
+
+        <p><span class="spec-label">Сеть:</span> Solana<br>
+        <span class="spec-label">Общая эмиссия:</span> 300 000 000 MEMEX<br>
+        <span class="spec-label">Основной ликвидный пул:</span> MEMEX / SOL<br>
+        <span class="spec-label">Адрес смарт-контракта (Mint Address):</span>
+        <div class="copy-container">
+            <span class="address-box" id="mintAddress">FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs</span>
+            <button class="btn-copy" onclick="copyMintAddress()">Скопировать</button>
+        </div></p>
+
+        <a href="https://dexscreener.com/solana/3t5wyfwbwsudqpv1h1qn7cv87aes3ej3qpzqrnjjstmy" class="btn-link" target="_blank">📈 Живой график и аналитика на Dexscreener</a>
+
+        <p><strong>Экосистема MEMEX:</strong></p>
+        <a href="https://app.memex.gg/markets" class="btn-link" target="_blank">🌐 Официальный торговый терминал</a>
+        <a href="https://docs.memex.gg" class="btn-link" target="_blank">📄 Техническая документация</a>
+        <a href="https://x.com/memexgg" class="btn-link" target="_blank">🐦 Официальное сообщество X (Twitter)</a>
+        <a href="https://t.me/memexgg" class="btn-link" target="_blank">📢 Информационный канал в Telegram</a>
+        <a href="https://t.me/MemexCryptoBot" class="btn-link" target="_blank">🤖 Официальный Telegram-бот для обмена</a>
+        <a href="https://x.com/wlakos_official" class="btn-link" target="_blank">👨‍💻 Официальный партнер и создатель (Dev) в X</a>
+
+        <p><strong>Официальный стратегический партнер. Экосистема MEMES:</strong></p>
+        <a href="https://memesc.org" class="btn-link btn-partner" target="_blank">💎 Веб-сайт партнера</a>
+        <a href="https://x.com/memeland_tg" class="btn-link btn-partner" target="_blank">🐦 Сообщество X (Twitter)</a>
+        <a href="https://t.me/memes_announcements" class="btn-link btn-partner" target="_blank">📢 Информационный канал в Telegram</a>
+        <a href="https://t.me/metaland_bot" class="btn-link btn-partner" target="_blank">🕹 Игровое Web3 приложение в Telegram</a>
+
+        <h3>ВАЖНОЕ УВЕДОМЛЕНИЕ ДЛЯ ИНВЕСТОРОВ (Disclaimer)</h3>
+        <blockquote>
+            Представители команды MEMEX и MEMES никогда не пишут пользователям первыми в личные сообщения и не запрашивают приватные ключи или сид-фразы (Seed phrase). Всегда сверяйте адрес смарт-контракта токена перед совершением транзакций на DEX-агрегаторах. Торговля деривативами связана с высокими рисками.
+        </blockquote>
+    </div>
+
+    <script>
+        function copyMintAddress() {
+            var addressText = document.getElementById("mintAddress").innerText;
+            navigator.clipboard.writeText(addressText).then(function() {
+                var copyButton = document.querySelector(".btn-copy");
+                copyButton.innerText = "Скопировано!";
+                copyButton.style.backgroundColor = "#28a745";
+                setTimeout(function() {
+                    copyButton.innerText = "Скопировать";
+                    copyButton.style.backgroundColor = "#0056b3";
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
