@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>MEMEX Whitepaper — Mobile Docs</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.5; color: #1f2937; background-color: #f9fafb; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        .nav-header { background-color: #0056b3; color: white; padding: 15px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; text-align: center; font-weight: bold; font-size: 16px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .container { max-width: 600px; margin: 60px auto 0 auto; padding: 20px 15px 40px 15px; background-color: #fff; }
+        h1 { font-size: 24px; color: #0056b3; text-align: center; margin-top: 15px; margin-bottom: 5px; line-height: 1.2; }
+        .subtitle { font-size: 14px; color: #4b5563; text-align: center; margin-bottom: 25px; display: block; }
+        h3 { font-size: 18px; color: #111827; border-left: 4px solid #0056b3; padding-left: 10px; margin-top: 30px; margin-bottom: 12px; }
+        p { font-size: 15px; color: #374151; margin-bottom: 15px; text-align: justify; }
+        ul, ol { padding-left: 20px; margin-bottom: 15px; }
+        li { font-size: 15px; color: #374151; margin-bottom: 8px; }
+        .formula-box { background-color: #f3f4f6; border: 1px solid #e5e7eb; border-radius: 8px; padding: 12px; margin: 15px 0; font-family: monospace; font-size: 13px; font-weight: bold; text-align: center; color: #065f46; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
+        .btn-link { display: block; background-color: #f0f7ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center; color: #0056b3; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.2s; word-break: break-all; }
+        .btn-link:active { background-color: #dbeafe; }
+        .btn-partner { display: block; background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 8px; padding: 12px; margin: 10px 0; text-align: center; color: #166534; text-decoration: none; font-weight: bold; font-size: 14px; transition: background 0.2s; word-break: break-all; }
+        .btn-partner:active { background-color: #dcfce7; }
+        blockquote { background-color: #fffbeb; border-left: 4px solid #f59e0b; padding: 12px; margin: 20px 0; border-radius: 0 8px 8px 0; font-style: italic; font-size: 14px; color: #78350f; }
+        .spec-label { font-weight: bold; color: #4b5563; }
+        .copy-container { display: flex; background-color: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 4px; margin-top: 6px; align-items: center; justify-content: space-between; }
+        .address-box { font-family: monospace; font-size: 12px; word-break: break-all; color: #334155; padding-left: 4px; }
+        .btn-copy { background-color: #0056b3; color: white; border: none; border-radius: 4px; padding: 6px 12px; font-size: 12px; font-weight: bold; cursor: pointer; white-space: nowrap; margin-left: 8px; }
+        .btn-copy:active { background-color: #003d7a; }
+    </style>
+</head>
+<body>
+
+    <div class="nav-header">MEMEX Docs & Whitepaper</div>
+
+    <div class="container">
+        <h1>MEMEX (MEMEX) Whitepaper</h1>
+        <span class="subtitle">Next-Generation Decentralized Perpetual Futures Exchange</span>
+
+        <h3>1. Introduction & Market Problem</h3>
+        <p>The modern Decentralized Finance (DeFi) market is highly fragmented: traders are forced to constantly switch between different platforms to trade memecoins, legacy crypto, and real-world assets (RWA). Existing decentralized exchanges (DEXs) often suffer from high fees, low liquidity during severe market volatility, and a total lack of robust tokenomics capable of protecting the interests of long-term investors.</p>
+        <p>MEMEX is a next-generation decentralized exchange (DEX) designed specifically for perpetual futures trading. The platform consolidates memecoins, major cryptocurrencies, tokenized stocks, and real-world assets (RWA) into a single, unified interface featuring deep liquidity, ultra-low trading fees, and complete self-custody.</p>
+
+        <h3>2. Key Platform Features</h3>
+        <ul>
+            <li><strong>Universal Trading:</strong> Perpetual contracts on any asset class — from trending high-hype memecoins to mega-cap tokenized stocks, gold, and RWAs.</li>
+            <li><strong>Engineered on Solana:</strong> Leveraging the Solana blockchain guarantees sub-second order matching (under 0.5s) and fractional network fees.</li>
+            <li><strong>Deep Liquidity:</strong> A hybrid execution engine merging an onchain Central Limit Order Book (CLOB) and dynamic liquidity pools to practically eliminate slippage.</li>
+            <li><strong>Total Self-Custody:</strong> User funds remain entirely inside their personal non-custodial wallets. The protocol never accesses or controls your private keys.</li>
+        </ul>
+
+        <h3>3. Tokenomics & Price Floor Mechanics (Hyper-Buyback)</h3>
+        <p>The MEMEX token serves as the core economic engine of the ecosystem. Moving away from highly inflationary token models, the project applies an aggressive deflationary model to protect investors.</p>
+        <p><strong>The "Target $10" Buyback Strategy:</strong></p>
+        <ul>
+            <li><strong>Revenue Allocation:</strong> Exactly 50% of ALL platform-generated revenue (trading fees, liquidation penalties, cross-chain bridge fees) is automatically routed to the asset buyback pool.</li>
+            <li><strong>Constant Buying Pressure:</strong> The deployment smart contract continuously purchases MEMEX tokens directly from the open market (Solana DEX pools), establishing a persistent upward price trajectory.</li>
+            <li><strong>Duration:</strong> The automated 50% revenue buyback program operates indefinitely until the global market price of the MEMEX token reaches $10.</li>
+        </ul>
+
+        <h3>4. Algorithmic Liquidity Management & Floor Price Protocol</h3>
+        <p>To curb extreme market volatility and guard participant capital, the MEMEX protocol incorporates an autonomous algorithmic market maker (AMM) operating within a Dynamic Liquidity Market Maker (DLMM) framework.</p>
+        <p>The MEMEX algorithm mathematically focuses pool liquidity inside specific strategic price targets:</p>
+        <ul>
+            <li><strong>Concentrated Liquidity Matrix:</strong> The smart contract anchors primary liquidity reserves inside the $0.10 – $1.00 price channel, forming a deep cushion within this targeted zone.</li>
+            <li><strong>Algorithmic Bid Wall:</strong> If the token price drops toward the $0.10 mark, the protocol triggers the reserve fund compiled by the Hyper-Buyback program. The contract instantly executes dense buy orders, dynamically shifting pool balances to protect the asset from breaking below the $0.10 absolute technical floor.</li>
+            <li><strong>Anti-Whale Manipulation:</strong> Due to the extreme density of liquidity inside this price tier, any deliberate attempts by large players to dump the MEMEX token are fully absorbed by the AMM with negligible price impact, securing a predictable investing environment.</li>
+        </ul>
+        <h3>5. Token Allocation</h3>
+        <p>The maximum and fixed total supply is set at 300,000,000 MEMEX. The project completely rejects private seed sales to VC funds and strictly follows a Fair Launch model:</p>
+        <ul>
+            <li><strong>100% Community Allocation:</strong> All 300,000,000 tokens are distributed entirely to the ecosystem users through open market trading, trading rewards, and early supporter airdrops. The team and insiders hold zero free allocations.</li>
+            <li><strong>Liquidity Pool Provision:</strong> A portion of the funds raised during the public launch is distributed equally to seed deep initial liquidity across all core DEX trading pairs.</li>
+            <li><strong>No Team Sell Protocol:</strong> The exchange holds no native token allocation on its balance sheet for market liquidation. All tokens accumulated by the protocol wallets are sourced exclusively through the Hyper-Buyback contract. These repurchased tokens are permanently locked from being dumped on the market; instead, they are strictly utilized for sustainable platform growth: funding staking pools, securing the perpetuals insurance fund, and backing multi-level affiliate rewards.</li>
+        </ul>
+
+        <h3>6. Token Utility & Staking</h3>
+        <p>MEMEX token holders unlock direct utility advantages across the entire platform architecture:</p>
+        <ol>
+            <li><strong>Trading Fee Discounts:</strong> Maintaining a token balance on your wallet proportionally minimizes your execution fees on the MEMEX exchange.</li>
+            <li><strong>DAO Governance:</strong> Token holders can vote on protocol updates, asset listings (new memes or RWAs), and ecosystem parameters.</li>
+            <li><strong>Revenue Share Staking:</strong> Locking tokens allows users to earn weekly yield directly from the automated buyback pool (50% of total exchange revenue).</li>
+        </ol>
+
+        <p><strong>Staking Rewards Distribution Formula:</strong></p>
+        <div class="formula-box">
+            R_user = (S_user &times; T_multiplier / S_total_weighted) &times; (Rev_weekly &times; 0.50)
+        </div>
+
+        <p>Where the parameters are defined as follows:</p>
+        <ul>
+            <li><strong>R_user</strong> — The final reward credited to the user for the current week (paid out in MEMEX tokens).</li>
+            <li><strong>S_user</strong> — The exact quantity of MEMEX tokens committed to the staking contract by the user.</li>
+            <li><strong>T_multiplier</strong> — Time-lock multiplier (rewards bonus for long-term commitment):
+                <ul>
+                    <li>Flexible Staking (No Lock) = 1.0x</li>
+                    <li>3-Month Lockout = 1.2x</li>
+                    <li>6-Month Lockout = 1.5x</li>
+                    <li>12-Month Lockout = 2.0x (Maximum Priority Tier).</li>
+                </ul>
+            </li>
+            <li><strong>S_total_weighted</strong> — The aggregated weighted volume of the entire staking pool (sum of all users' tokens multiplied by their lock tiers).</li>
+            <li><strong>Rev_weekly</strong> — Total net weekly revenue generated by the MEMEX exchange in USD value (fully utilized for market buybacks).</li>
+            <li><strong>0.50</strong> — Fixed allocation share (50% of the platform's revenue).</li>
+        </ul>
+
+        <blockquote>
+            <strong>Calculation Example:</strong> If the exchange generates $100,000 in weekly trading fees, the buyback contract purchases $50,000 worth of MEMEX from the market. If your pool share (including your time-lock multiplier) equals 1% of S_total_weighted, you will automatically receive $500 worth of MEMEX tokens directly into your wallet at the end of the week.
+        </blockquote>
+
+        <h3>7. Roadmap</h3>
+        <ul>
+            <li><strong>Phase 1:</strong> Testnet launch of the perpetuals infrastructure, comprehensive security smart contract audits, and primary MEMEX token listing on leading Solana aggregators (Raydium/Jupiter).</li>
+            <li><strong>Phase 2:</strong> Mainnet deployment for perpetual futures trading across crypto and meme markets. Activation of the automated Hyper-Buyback protocol (routing 50% of fee revenue to buybacks).</li>
+            <li><strong>Phase 3:</strong> Liquidity matrix scaling and frontend expansion. Launch of the deep MEMEX/WETH pool on Solana to capture Ethereum ecosystem capital. Rollout of the optimized Web App and mobile interface for frictionless one-click trading.</li>
+            <li><strong>Phase 4:</strong> Triangular Arbitrage Synchronization. Forming a closed-loop liquidity system between three strategic pools: MEMEX/SOL, SOL/WETH, and MEMEX/WETH.
+                <p style="margin-top: 8px; font-style: italic; font-size: 14px;">Arbitrage Mechanic: If the price of global SOL or WETH rises by 10%, algorithmic bots instantly execute round-robin onchain trades, buying MEMEX with the appreciated asset to rebalance the ratios. Consequently, the MEMEX price mirrors the 10% move organically.</p>
+            </li>
+            <li><strong>Phase 5:</strong> Global volume expansion of the derivatives platform to fulfill the deflationary target token price of $10.</li>
+        </ul>
+
+        <h3>8. Official Links & Specs</h3>
+        <p>To ensure community security against phishing threats, always verify smart contract addresses and utilize verified channels only.</p>
+
+        <p><span class="spec-label">Network:</span> Solana<br>
+        <span class="spec-label">Total Supply:</span> 300,000,000 MEMEX<br>
+        <span class="spec-label">Core Liquidity Pool:</span> MEMEX / SOL<br>
+        <span class="spec-label">Mint Address (Smart Contract):</span>
+        <div class="copy-container">
+            <span class="address-box" id="mintAddress">FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs</span>
+            <button class="btn-copy" onclick="copyMintAddress()">Copy Address</button>
+        </div></p>
+
+        <a href="https://dexscreener.com/solana/3t5wyfwbwsudqpv1h1qn7cv87aes3ej3qpzqrnjjstmy" class="btn-link" target="_blank">📈 Live Chart & Analytics on Dexscreener</a>
+
+        <p><strong>MEMEX Ecosystem:</strong></p>
+        <a href="https://app.memex.gg/markets" class="btn-link" target="_blank">🌐 Official Trading Terminal</a>
+        <a href="https://docs.memex.gg" class="btn-link" target="_blank">📄 Technical Documentation</a>
+        <a href="https://x.com/memexgg" class="btn-link" target="_blank">🐦 Official X (Twitter) Community</a>
+        <a href="https://t.me/memexgg" class="btn-link" target="_blank">📢 Telegram Announcement Channel</a>
+        <a href="https://t.me/MemexCryptoBot" class="btn-link" target="_blank">🤖 Telegram Swap Bot</a>
+        <a href="https://x.com/wlakos_official" class="btn-link" target="_blank">👨‍💻 Token Creator & Dev Profile on X</a>
+
+        <p><strong>Strategic Partner: MEMES Ecosystem:</strong></p>
+        <a href="https://memesc.org" class="btn-link btn-partner" target="_blank">💎 Partner Web Platform</a>
+        <a href="https://x.com/memeland_tg" class="btn-link btn-partner" target="_blank">🐦 X (Twitter) Community</a>
+        <a href="https://t.me/memes_announcements" class="btn-link btn-partner" target="_blank">📢 Telegram Community Channel</a>
+        <a href="https://t.me/metaland_bot" class="btn-link btn-partner" target="_blank">🕹 Web3 Telegram Gaming App</a>
+
+        <h3>🚨 IMPORTANT NOTICE FOR INVESTORS (Disclaimer)</h3>
+        <blockquote>
+            Core members of the MEMEX and MEMES teams will never direct message (DM) you first or request your private keys or backup seed phrases. Always double-check the asset token mint contract address before interacting on DEX platforms. Derivatives trading involves high market risk; manage your capital responsibly.
+        </blockquote>
+    </div>
+
+    <script>
+        function copyMintAddress() {
+            var addressText = document.getElementById("mintAddress").innerText;
+            navigator.clipboard.writeText(addressText).then(function() {
+                var copyButton = document.querySelector(".btn-copy");
+                copyButton.innerText = "Copied!";
+                copyButton.style.backgroundColor = "#28a745";
+                setTimeout(function() {
+                    copyButton.innerText = "Copy Address";
+                    copyButton.style.backgroundColor = "#0056b3";
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Copy failed: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
