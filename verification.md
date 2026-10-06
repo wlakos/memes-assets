@@ -4,10 +4,10 @@
 MEMEX DEX (Solana Ecosystem)
 
 ### GitHub Account:
-https://github.com
+https://github.com/wlakos
 
 ### Developer X (Twitter) Account:
-https://x.com
+https://x.com/wlakos_official
 
 ### Official Solana Token Address (CA):
 FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs
