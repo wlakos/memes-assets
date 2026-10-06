@@ -1,14 +1,17 @@
-# Official Token Verification
+# Official MEMEX ($MEMEX) Token Verification
+
+### Project Name:
+MEMEX DEX (Solana Ecosystem)
 
 ### GitHub Account:
-https://github.com/wlakos
+https://github.com
 
-### Developer X Account:
-https://x.com/wlakos_official
+### Developer X (Twitter) Account:
+https://x.com
 
-### Official Solana Token Address:
+### Official Solana Token Address (CA):
 FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs
 
 ### Statement:
-I publicly declare that this GitHub account (wlakos) is officially associated with and maintains the MEMEX Solana token contract:
+I publicly declare that this GitHub account (wlakos) is officially associated with and maintains the MEMEX ($MEMEX) Solana token contract:
 FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs
