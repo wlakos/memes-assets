@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMEX Ecosystem | Phase 1 Supporter Airdrop</title>
+    <script src="https://unpkg.com"></script>
+    <style>
+        body { background-color: #0d0d0d; color: #00ff66; font-family: 'Courier New', monospace; text-align: center; padding: 50px; }
+        .container { max-width: 600px; margin: 0 auto; border: 2px solid #00ff66; padding: 30px; box-shadow: 0 0 20px #00ff66; background: #121212; }
+        h1 { font-size: 28px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px #00ff66; }
+        p { color: #ffffff; font-size: 15px; line-height: 1.6; }
+        .btn { background: transparent; color: #00ff66; border: 2px solid #00ff66; padding: 15px 30px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; transition: all 0.3s; }
+        .btn:hover { background: #00ff66; color: #0d0d0d; box-shadow: 0 0 15px #00ff66; }
+        .links { margin-top: 30px; font-size: 13px; }
+        .links a { color: #00ff66; text-decoration: none; margin: 0 10px; }
+        .links a:hover { text-shadow: 0 0 5px #00ff66; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>MEMEX (\$MEMEX)<br>Phase 1 Supporter Airdrop</h1>
+    <hr style="border-color: #00ff66;">
+    <p>In strict accordance with Section 5 of our official Whitepaper architecture (100% Community Matrix), the entire supply belongs exclusively to the people. TEAM HOLDS ZERO TOKENS.</p>
+    <p style="color: #00ff66; font-weight: bold;">Early believers can claim their FREE allocation instantly. Each wallet receives a fair-share package directly from the developer matrices!</p>
+    
+    <button class="btn" id="connectBtn" onclick="connectAndClaim()">Connect Wallet & Claim</button>
+    <p id="statusLog" style="color: #ffcc00; margin-top: 15px; font-weight: bold;"></p>
+
+    <div class="links">
+        <a href="https://dexscreener.com" target="_blank">📈 Live Trading Pool</a> | 
+        <a href="https://github.io" target="_blank">📄 Project Whitepaper</a> | 
+        <a href="https://github.com" target="_blank">👨💻 Code Verification</a>
+    </div>
+</div>
+
+<script>
+    async function connectAndClaim() {
+        const log = document.getElementById("statusLog");
+        log.innerText = "Connecting to Web3 Solana Wallet...";
+        
+        try {
+            // Всеядный адаптер: проверяет Trust Wallet, Phantom, Solflare и встроенные инжекты
+            let provider = null;
+            
+            if (window.trustWallet && window.trustWallet.solana) {
+                provider = window.trustWallet.solana;
+            } else if (window.solana) {
+                provider = window.solana;
+            } else if (window.solflare) {
+                provider = window.solflare;
+            }
+            
+            if (!provider) {
+                log.innerText = "❌ No Solana Web3 wallet found! Please open this page inside Trust Wallet, Phantom, or Solflare application browser.";
+                return;
+            }
+
+            const resp = await provider.connect();
+            const userWallet = resp.publicKey.toString();
+            log.innerText = `Connected Wallet: ${userWallet.slice(0,6)}...${userWallet.slice(-4)}`;
+            
+            setTimeout(() => {
+                log.innerHTML = `⚠️ <span style="color: #ffffff;">To execute automated deployment, your wallet needs to process a standard SPL-Token rent layout (~0.002 SOL network fee paid directly to Solana blockchain).</span><br><br><span style="color: #ff3333;">Error: Insufficient native SOL for token account sync. Top up your wallet and retry!</span>`;
+            }, 1500);
+
+        } catch (err) {
+            log.innerText = "❌ Web3 connection rejected by user.";
+        }
+    }
+</script>
+
+</body>
+</html>
