@@ -2,42 +2,104 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>MEMEX Ecosystem | Real Supporter Airdrop</title>
     <script src="https://unpkg.com"></script>
     <style>
-        body { background-color: #0d0d0d; color: #00ff66; font-family: 'Courier New', monospace; text-align: center; padding: 50px; }
-        .container { max-width: 600px; margin: 0 auto; border: 2px solid #00ff66; padding: 30px; box-shadow: 0 0 20px #00ff66; background: #121212; }
-        h1 { font-size: 28px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px #00ff66; }
-        p { color: #ffffff; font-size: 15px; line-height: 1.6; }
-        .btn { background: transparent; color: #00ff66; border: 2px solid #00ff66; padding: 15px 30px; font-size: 18px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 20px; transition: all 0.3s; }
+        body { 
+            background-color: #0d0d0d; 
+            color: #00ff66; 
+            font-family: 'Courier New', monospace; 
+            text-align: center; 
+            padding: 20px; 
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        .container { 
+            width: 100%;
+            max-width: 500px; 
+            margin: 0 auto; 
+            border: 2px solid #00ff66; 
+            padding: 30px 20px; 
+            box-shadow: 0 0 20px #00ff66; 
+            background: #121212; 
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+        h1 { 
+            font-size: 24px; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
+            text-shadow: 0 0 10px #00ff66;
+            margin-top: 0;
+            line-height: 1.3;
+        }
+        p { 
+            color: #ffffff; 
+            font-size: 14px; 
+            line-height: 1.5; 
+            margin: 15px 0;
+        }
+        .btn { 
+            background: transparent; 
+            color: #00ff66; 
+            border: 2px solid #00ff66; 
+            padding: 16px 20px; 
+            font-size: 16px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            text-transform: uppercase; 
+            margin-top: 20px; 
+            transition: all 0.3s; 
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
         .btn:hover { background: #00ff66; color: #0d0d0d; box-shadow: 0 0 15px #00ff66; }
         .btn:disabled { border-color: #444; color: #444; cursor: not-allowed; box-shadow: none; }
-        .links { margin-top: 30px; font-size: 13px; }
-        .links a { color: #00ff66; text-decoration: none; margin: 0 10px; }
+        .links { 
+            margin-top: 30px; 
+            font-size: 12px; 
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .links a { color: #00ff66; text-decoration: none; font-weight: bold; }
         .links a:hover { text-shadow: 0 0 5px #00ff66; }
+        
+        @media (max-width: 380px) {
+            h1 { font-size: 20px; }
+            p { font-size: 13px; }
+            .btn { font-size: 14px; padding: 14px 15px; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>MEMEX (\$MEMEX)<br>100% Free Supporter Airdrop</h1>
-    <hr style="border-color: #00ff66;">
+    <hr style="border-color: #00ff66; margin: 15px 0;">
     <p>No strings attached, no tasks required. Every unique Solana wallet can claim <strong>100 MEMEX</strong> absolutely free, strictly once per address!</p>
     <p style="color: #00ff66; font-weight: bold;">Connect your Wallet Solana to execute your secure on-chain sync.</p>
     
     <button class="btn" id="claimBtn" onclick="executeRealClaim()">Connect & Claim 100 MEMEX</button>
-    <p id="statusLog" style="color: #00ff66; margin-top: 15px; font-weight: bold;"></p>
+    <p id="statusLog" style="color: #ffcc00; margin-top: 15px; font-weight: bold; font-size: 13px; line-height: 1.4;"></p>
 
     <div class="links">
-        <a href="https://dexscreener.com/solana/3t5wyfwbwsudqpv1h1qn7cv87aes3ej3qpzqrnjjstmy" target="_blank">📈 Live Trading Pool</a> | 
-        <a href="https://wlakos.github.io/memes-assets/index-en.html" target="_blank">📄 Project Whitepaper</a>
+        <a href="https://dexscreener.com/solana/3t5wyfwbwsudqpv1h1qn7cv87aes3ej3qpzqrnjjstmy" target="_blank">📈 Live Pool</a>
+        <a href="https://wlakos.github.io/memes-assets/index-en.html" target="_blank">📄 Whitepaper</a>
     </div>
 </div>
 
 <script>
     const MEMEX_MINT = "FLCZBRXSHcaRExB9dFgPDyjJWM1Angbr6z8sCqRxZeXs";
-    const DEPLOYER_WALLET = "6YxWmjHw2TsfNecaKYXTJY3Yb566dQjsZtE5FmExTZEK"; // Твой реальный кошелек создателя
+    const DEPLOYER_WALLET = "6YxWmjHw2TsfNecaKYXTJY3Yb566dQjsZtE5FmExTZEK"; 
     const CLAIM_AMOUNT = 100;
 
     async function executeRealClaim() {
@@ -54,14 +116,13 @@
             
             if (!provider) {
                 log.style.color = "#ff3333";
-                log.innerText = "❌ Wallet not found! Open this page inside Trust Wallet, Phantom, or Solflare application browser.";
+                log.innerText = "Wallet not found! Open this page inside your Solana Wallet application browser";
                 return;
             }
 
             const resp = await provider.connect();
             const userWallet = resp.publicKey.toString();
             
-            // Жесткая проверка: один адрес - один клейм
             if (localStorage.getItem(`claimed_${userWallet}`)) {
                 log.style.color = "#ff3333";
                 log.innerText = "❌ ERROR: This wallet address has ALREADY claimed its 100 MEMEX allocation!";
