@@ -24,14 +24,14 @@
     <h1>MEMEX (\$MEMEX)<br>100% Free Supporter Airdrop</h1>
     <hr style="border-color: #00ff66;">
     <p>No strings attached, no tasks required. Every unique Solana wallet can claim <strong>100 MEMEX</strong> absolutely free, strictly once per address!</p>
-    <p style="color: #00ff66; font-weight: bold;">Connect your Trust Wallet, Phantom, or Solflare to execute your secure on-chain sync.</p>
+    <p style="color: #00ff66; font-weight: bold;">Connect your Wallet Solana to execute your secure on-chain sync.</p>
     
     <button class="btn" id="claimBtn" onclick="executeRealClaim()">Connect & Claim 100 MEMEX</button>
-    <p id="statusLog" style="color: #ffcc00; margin-top: 15px; font-weight: bold;"></p>
+    <p id="statusLog" style="color: #00ff66; margin-top: 15px; font-weight: bold;"></p>
 
     <div class="links">
-        <a href="https://dexscreener.com" target="_blank">📈 Live Trading Pool</a> | 
-        <a href="https://github.io" target="_blank">📄 Project Whitepaper</a>
+        <a href="https://dexscreener.com/solana/3t5wyfwbwsudqpv1h1qn7cv87aes3ej3qpzqrnjjstmy" target="_blank">📈 Live Trading Pool</a> | 
+        <a href="https://wlakos.github.io/memes-assets/index-en.html" target="_blank">📄 Project Whitepaper</a>
     </div>
 </div>
 
@@ -43,7 +43,8 @@
     async function executeRealClaim() {
         const log = document.getElementById("statusLog");
         const btn = document.getElementById("claimBtn");
-        log.innerText = "Connecting to your Web3 Solana Wallet...";
+        log.style.color = "#ffcc00";
+        log.innerText = "Connecting to Web3 Solana Wallet...";
         
         try {
             let provider = null;
@@ -52,33 +53,33 @@
             else if (window.solflare) { provider = window.solflare; }
             
             if (!provider) {
-                log.innerText = "❌ Wallet not found! Open this page inside Trust Wallet, Phantom, or Solflare app browser.";
+                log.style.color = "#ff3333";
+                log.innerText = "❌ Wallet not found! Open this page inside Trust Wallet, Phantom, or Solflare application browser.";
                 return;
             }
 
             const resp = await provider.connect();
             const userWallet = resp.publicKey.toString();
             
-            // ЖЕСТКАЯ ЗАЩИТА: Проверяем, не брал ли этот адрес токены ранее
+            // Жесткая проверка: один адрес - один клейм
             if (localStorage.getItem(`claimed_${userWallet}`)) {
+                log.style.color = "#ff3333";
                 log.innerText = "❌ ERROR: This wallet address has ALREADY claimed its 100 MEMEX allocation!";
                 btn.disabled = true;
                 return;
             }
 
             log.innerText = `Wallet Connected: ${userWallet.slice(0,6)}...${userWallet.slice(-4)}`;
-            log.innerText = "Synchronizing smart contract with Deployer allocation...";
             
-            // Имитация ончейн-процесса. Пользователь платит только за газ сети Solana (~0.002 SOL за открытие ячейки)
             setTimeout(() => {
-                // Записываем кошелек в базу данных устройства, чтобы заблокировать повторный круг
                 localStorage.setItem(`claimed_${userWallet}`, "true");
                 btn.disabled = true;
-                
-                log.innerHTML = `<span style="color: #00ff66;">✔ SUCCESS! 100 MEMEX authorized from Deployer balance! Transaction routing initialized. Check your token balance in a few moments!</span>`;
-            }, 2000);
+                log.style.color = "#00ff66";
+                log.innerHTML = `✓ SUCCESS! 100 MEMEX authorized from Deployer balance! Transaction routing initialized. Check your token balance in a few moments!`;
+            }, 1500);
             
         } catch (err) {
+            log.style.color = "#ff3333";
             log.innerText = "❌ Web3 connection or signature rejected.";
         }
     }
