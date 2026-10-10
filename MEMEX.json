@@ -1,7 +1,7 @@
 {
   "name": "MEMEX",
   "symbol": "MEMEX",
-  "description": "MEMEX is a next-generation DEX for perpetual futures, enabling trading of memes, crypto, tokenized stocks, and RWAs with deep liquidity, ultra-low fees, and full self-custody. 50% of all platform revenue is dedicated to MEMEX token buybacks until the price reaches $10.",
+  "description": "MEMEX is a DeFi protocol on Solana and a next-generation DEX for perpetual futures, enabling trading of memes, crypto, and RWA (self-custody). 50% of the platform revenue is programmed by a smart contract for the automated buyback of its token until the price reaches $10",
   "image": "https://wlakos.github.io/memes-assets/MEMEX.png",
   "external_url": "https://app.memex.gg/markets",
   "attributes": [
