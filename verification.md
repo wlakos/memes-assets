@@ -1,7 +1,7 @@
 # Official MEMEX ($MEMEX) Token Verification
 
 ### Project Name:
-MEMEX DEX (Solana Ecosystem)
+MEMEX DeFi Protocol (Solana Ecosystem)
 
 ### GitHub Account:
 https://github.com/wlakos
